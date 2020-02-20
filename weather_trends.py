@@ -34,7 +34,6 @@ berlin_data_new = berlin_data[berlin_data.year.between(start_year,end_year)]
 berlin_data_new.reset_index(drop=True,inplace=True)
 global_data_new = global_data[global_data.year.between(start_year,end_year)]
 global_data_new.reset_index(drop=True,inplace=True)
-
 berlin_data_new['mv_avg']=berlin_data_new['avg_temp'].rolling(window=30).mean()
 global_data_new['mv_avg']=global_data_new['avg_temp'].rolling(window=30).mean()
 
@@ -47,4 +46,18 @@ plt.plot(year, global_data_new['mv_avg'],label = "GL MA 30 y")
 plt.xlabel('Years')
 plt.ylabel('Average Temprature')
 plt.legend(loc = 2)
+berlin_plot_min=berlin_data_new['mv_avg'].min()
+year_point=int(berlin_data_new[berlin_data_new['mv_avg']==berlin_plot_min].year.values)
+plt.text(year_point,berlin_plot_min,"Year: {}\n avg_temp:{}".format(year_point,berlin_plot_min))
+global_plot_min=global_data_new['mv_avg'].min()
+gl_year_point=int(global_data_new[global_data_new['mv_avg']==global_plot_min].year.values)
+plt.text(gl_year_point,global_plot_min,"Year: {}\n avg_temp:{}".format(gl_year_point,global_plot_min))
+#berlin
+plt.text(berlin_data_new.iloc[29].year,berlin_data_new.iloc[29].mv_avg,"Year: {}\n avg_temp:{}".format(berlin_data_new.iloc[29].year,berlin_data_new.iloc[29].mv_avg))
+plt.text(berlin_data_new.iloc[-1].year,berlin_data_new.iloc[-1].mv_avg,"Year: {}\n avg_temp:{}".format(berlin_data_new.iloc[-1].year,berlin_data_new.iloc[-1].mv_avg))
+
+plt.text(global_data_new.iloc[29].year,global_data_new.iloc[29].mv_avg,"Year: {}\n avg_temp:{}".format(global_data_new.iloc[29].year,global_data_new.iloc[29].mv_avg))
+plt.text(global_data_new.iloc[-1].year,global_data_new.iloc[-1].mv_avg,"Year: {}\n avg_temp:{}".format(global_data_new.iloc[-1].year,global_data_new.iloc[-1].mv_avg))
+
+
 plt.show()
