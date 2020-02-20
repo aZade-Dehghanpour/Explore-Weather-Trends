@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 berlin_data = pd.read_csv("Data/berlin_data.csv")
 global_data = pd.read_csv("Data/global_data.csv")
@@ -36,3 +37,14 @@ global_data_new.reset_index(drop=True,inplace=True)
 
 berlin_data_new['mv_avg']=berlin_data_new['avg_temp'].rolling(window=30).mean()
 global_data_new['mv_avg']=global_data_new['avg_temp'].rolling(window=30).mean()
+
+year = berlin_data_new.year
+
+plt.figure(figsize = (15,10))
+plt.grid(True)
+plt.plot(year, berlin_data_new['mv_avg'],label = "Brl MA 30 y")
+plt.plot(year, global_data_new['mv_avg'],label = "GL MA 30 y")
+plt.xlabel('Years')
+plt.ylabel('Average Temprature')
+plt.legend(loc = 2)
+plt.show()
