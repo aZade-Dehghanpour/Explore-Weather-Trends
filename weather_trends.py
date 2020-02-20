@@ -41,38 +41,38 @@ year = berlin_data_new.year
 
 plt.figure(figsize = (15,10))
 plt.grid(True)
-plt.plot(year, berlin_data_new['mv_avg'],label = "Brl MA 30 y")
-plt.plot(year, global_data_new['mv_avg'],label = "GL MA 30 y")
+plt.plot(year, berlin_data_new['mv_avg'],label = "Berlin Average Temperature Trend 1750 - 2013")
+plt.plot(year, global_data_new['mv_avg'],label = "Global Average Temperature Trend 1750 - 2013")
 plt.xlabel('Years')
 plt.ylabel('Average Temprature')
 plt.legend(loc = 2)
 berlin_plot_min=berlin_data_new['mv_avg'].min()
 year_point=int(berlin_data_new[berlin_data_new['mv_avg']==berlin_plot_min].year.values)
-plt.text(year_point,berlin_plot_min,"Year: {}\n avg_temp:{}".format(year_point,berlin_plot_min))
+plt.text(year_point,berlin_plot_min,"Year: {}\n avg_temp:{}".format(year_point,round(berlin_plot_min,2)),horizontalalignment='right',verticalalignment='top')
 plt.plot(year_point,berlin_plot_min,'ro')
 global_plot_min=global_data_new['mv_avg'].min()
 gl_year_point=int(global_data_new[global_data_new['mv_avg']==global_plot_min].year.values)
-plt.text(gl_year_point,global_plot_min,"Year: {}\n avg_temp:{}".format(gl_year_point,global_plot_min))
+plt.text(gl_year_point,global_plot_min,"Year: {}\n avg_temp:{}".format(gl_year_point,round(global_plot_min,2)),horizontalalignment='right',verticalalignment='top')
 plt.plot(gl_year_point,global_plot_min,'ro')
 
 
-#berlin
-plt.text(berlin_data_new.iloc[29].year,berlin_data_new.iloc[29].mv_avg,"Year: {}\n avg_temp:{}".format(berlin_data_new.iloc[29].year,berlin_data_new.iloc[29].mv_avg))
+
+plt.text(berlin_data_new.iloc[29].year,berlin_data_new.iloc[29].mv_avg,"Year: {}\n avg_temp:{}".format(berlin_data_new.iloc[29].year,round(berlin_data_new.iloc[29].mv_avg,2)),horizontalalignment='left',verticalalignment='top')
 plt.plot(berlin_data_new.iloc[29].year,berlin_data_new.iloc[29].mv_avg,'ro')
 
-plt.text(berlin_data_new.iloc[-1].year,berlin_data_new.iloc[-1].mv_avg,"Year: {}\n avg_temp:{}".format(berlin_data_new.iloc[-1].year,berlin_data_new.iloc[-1].mv_avg))
+plt.text(berlin_data_new.iloc[-1].year,berlin_data_new.iloc[-1].mv_avg,"Year: {}\n avg_temp:{}".format(berlin_data_new.iloc[-1].year,round(berlin_data_new.iloc[-1].mv_avg,2)),horizontalalignment='right')
 plt.plot(berlin_data_new.iloc[-1].year,berlin_data_new.iloc[-1].mv_avg,'ro')
 
-plt.text(global_data_new.iloc[29].year,global_data_new.iloc[29].mv_avg,"Year: {}\n avg_temp:{}".format(global_data_new.iloc[29].year,global_data_new.iloc[29].mv_avg))
+plt.text(global_data_new.iloc[29].year,global_data_new.iloc[29].mv_avg,"Year: {}\n avg_temp:{}".format(global_data_new.iloc[29].year,round(global_data_new.iloc[29].mv_avg,2)),horizontalalignment='left',verticalalignment='top')
 plt.plot(global_data_new.iloc[29].year,global_data_new.iloc[29].mv_avg,'ro')
 
-plt.text(global_data_new.iloc[-1].year,global_data_new.iloc[-1].mv_avg,"Year: {}\n avg_temp:{}".format(global_data_new.iloc[-1].year,global_data_new.iloc[-1].mv_avg))
+plt.text(global_data_new.iloc[-1].year,global_data_new.iloc[-1].mv_avg,"Year: {}\n avg_temp:{}".format(global_data_new.iloc[-1].year,round(global_data_new.iloc[-1].mv_avg,2)),horizontalalignment='right',verticalalignment='top')
 plt.plot(global_data_new.iloc[-1].year,global_data_new.iloc[-1].mv_avg,'ro')
 
-plt.text(1981, float(berlin_data_new[berlin_data_new.year==1981].mv_avg),"Year: {}\n avg_temp:{}".format(1981,float(berlin_data_new[berlin_data_new.year==1981].mv_avg.values)))
+plt.text(1981, float(berlin_data_new[berlin_data_new.year==1981].mv_avg),"Year: {}\n avg_temp:{}".format(1981,round(float(berlin_data_new[berlin_data_new.year==1981].mv_avg.values),2)),horizontalalignment='right',verticalalignment='top')
 plt.plot(1981, float(berlin_data_new[berlin_data_new.year==1981].mv_avg),'ro')
 
-plt.text(1981, float(global_data_new[berlin_data_new.year==1981].mv_avg.values),"Year: {}\n avg_temp:{}".format(1981,float(global_data_new[berlin_data_new.year==1981].mv_avg.values)))
+plt.text(1981, float(global_data_new[berlin_data_new.year==1981].mv_avg.values),"Year: {}\n avg_temp:{}".format(1981,round(float(global_data_new[berlin_data_new.year==1981].mv_avg.values),2)),horizontalalignment='left',verticalalignment='top')
 plt.plot(1981, float(global_data_new[berlin_data_new.year==1981].mv_avg.values),'ro')
 
 
