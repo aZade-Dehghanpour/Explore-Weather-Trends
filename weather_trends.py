@@ -74,7 +74,4 @@ plt.plot(1981, float(berlin_data_new[berlin_data_new.year==1981].mv_avg),'ro')
 
 plt.text(1981, float(global_data_new[berlin_data_new.year==1981].mv_avg.values),"Year: {}\n avg_temp:{}".format(1981,round(float(global_data_new[berlin_data_new.year==1981].mv_avg.values),2)),horizontalalignment='left',verticalalignment='top')
 plt.plot(1981, float(global_data_new[berlin_data_new.year==1981].mv_avg.values),'ro')
-
-
-
 plt.show()
